@@ -1,0 +1,21 @@
+
+func completed_in_all_ns ()
+{
+  kubectl get po -A |\
+    grep Completed
+}
+
+func completed_namespaces ()
+{
+  kubectl get po -A  |\
+    grep Completed   |\
+    awk '{print $1}' |\
+    sort -u
+}
+
+func completed_in_ns ()
+{
+  kubectl get po     |\
+    grep Completed   |\
+    awk '{print $1}'
+}

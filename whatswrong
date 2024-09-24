@@ -1,0 +1,47 @@
+
+function wrong_in_all_ns () {
+  kubectl get po -A|\
+    grep -v '7/7     Running' |\
+    grep -v '4/4     Running' |\
+    grep -v '3/3     Running' |\
+    grep -v '2/2     Running' |\
+    grep -v '1/1     Running' |\
+    grep -v '0/1     Completed'
+}
+
+function wrong_namespaces () {
+  kubectl get po -A|\
+    grep -v '7/7     Running'   |\
+    grep -v '4/4     Running'   |\
+    grep -v '3/3     Running'   |\
+    grep -v '2/2     Running'   |\
+    grep -v '1/1     Running'   |\
+    grep -v '0/1     Completed' |\
+    awk '{print $1}'            |\
+    sort -u                     |\
+    grep -v NAMESPACE
+}
+
+function wrong_in_ns () {
+  kubectl get po|\
+    grep -v '7/7     Running' |\
+    grep -v '4/4     Running' |\
+    grep -v '3/3     Running' |\
+    grep -v '2/2     Running' |\
+    grep -v '1/1     Running' |\
+    grep -v '0/1     Completed'
+}
+
+function wrong_pods_in_ns () {
+  kubectl get po|\
+    grep -v '7/7     Running'   |\
+    grep -v '4/4     Running'   |\
+    grep -v '3/3     Running'   |\
+    grep -v '2/2     Running'   |\
+    grep -v '1/1     Running'   |\
+    grep -v '0/1     Completed' |\
+    awk '{print $1}'            |\
+    sort -u                     |\
+    grep -v NAME
+}
+
