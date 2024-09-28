@@ -1,3 +1,4 @@
+!#/usr/bin/env zsh
 
 func completed_in_all_ns ()
 {

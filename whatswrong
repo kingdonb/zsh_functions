@@ -1,3 +1,4 @@
+!#/usr/bin/env zsh
 
 function wrong_in_all_ns () {
   kubectl get po -A|\

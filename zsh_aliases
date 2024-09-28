@@ -1,3 +1,5 @@
+!#/usr/bin/env zsh
+
 alias hogs='k top po -A |sort -k4 -h'
 
 source $HOME/zsh_functions/whatswrong
