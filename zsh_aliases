@@ -1,0 +1,60 @@
+alias hogs='k top po -A |sort -k4 -h'
+
+source $HOME/zsh_functions/whatswrong
+
+alias whatswrong='wrong_in_all_ns'
+alias lwhatswrong='watch '"'"'zsh -c "source '$HOME'/zsh_functions/whatswrong; wrong_in_all_ns"'"'"''
+alias nwhatswrong="wrong_in_ns"
+alias dnwhatswrong="for i ($(wrong_namespaces)); do \
+  kubens \$i; \
+    wrong_pods_in_ns|xargs kubectl delete po; \
+  done"
+alias dwhatswrong="wrong_pods_in_ns|xargs kubectl delete po"
+
+source $HOME/zsh_functions/completed
+alias completed='completed_in_all_ns'
+alias delcomplete="for i ($(completed_namespaces)); do \
+  kubens \$i; \
+    completed_in_ns|xargs kubectl delete po; \
+  done"
+
+alias grc='git rebase --continue'
+alias ga='git add'
+alias gap='git add -p'
+alias gc='git commit -v -s -S'
+alias gcm='git commit -v -s -S -m'
+alias gmf='git merge --ff-only'
+alias gd='git diff'
+alias gdc='git diff --cached'
+alias gl='git l'
+alias gs='git status'
+alias gsl='git stash list -u'
+alias gsd='git stash drop'
+
+alias be='bundle exec'
+alias k=kubectl
+alias kg='kubectl get -A'
+alias ks='kubectl -n kube-system'
+alias kcs='kubectl -n cozy-system'
+alias kcf='kubectl -n cozy-fluxcd'
+alias kls='kubectl -n cozy-linstor'
+alias kff='kubectl --namespace=flux-system'
+alias fa='flux get ks -A|egrep -v ^flux-system'
+alias faa='flux get ks -A'
+alias fak='flux get ks'
+alias supertldr="pushd /Users/yebyen/projects/weaveworks/kubeconfig-ca-fetch && make clean && make supertldr && popd"
+
+alias gtd='git tag -d'
+alias gpo='git push origin'
+alias gp='git push'
+alias moo='ssh moo'
+alias msi='ssh msi'
+alias qgit='git'
+
+do-gh-get-authtoken () {
+#  ~/go/bin/yq r ~/.config/gh/hosts.yml '"github.com".oauth_token'
+#  ~/go/bin/yq '."github.com".oauth_token' ~/.config/gh/hosts.yml
+  gh config get -h github.com oauth_token
+}
+
+alias ghtoken='export GITHUB_TOKEN=`do-gh-get-authtoken`'
