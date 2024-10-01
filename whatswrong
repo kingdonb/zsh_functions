@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 function wrong_in_all_ns () {
-  kubectl get po -A|\
+  kubectl get po -A -o wide|\
     grep -v '7/7     Running' |\
     grep -v '4/4     Running' |\
     grep -v '3/3     Running' |\
