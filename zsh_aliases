@@ -7,7 +7,7 @@ source $HOME/zsh_functions/whatswrong
 alias whatswrong='wrong_in_all_ns'
 alias lwhatswrong='watch '"'"'zsh -c "source '$HOME'/zsh_functions/whatswrong; wrong_in_all_ns"'"'"''
 alias nwhatswrong="wrong_in_ns"
-alias dnwhatswrong="for i ($(wrong_namespaces)); do \
+alias dnwhatswrong="for i (\$(wrong_namespaces)); do \
   kubens \$i; \
     wrong_pods_in_ns|xargs kubectl delete po; \
   done"
@@ -15,7 +15,7 @@ alias dwhatswrong="wrong_pods_in_ns|xargs kubectl delete po"
 
 source $HOME/zsh_functions/completed
 alias completed='completed_in_all_ns'
-alias delcomplete="for i ($(completed_namespaces)); do \
+alias delcomplete="for i (\$(completed_namespaces)); do \
   kubens \$i; \
     completed_in_ns|xargs kubectl delete po; \
   done"
