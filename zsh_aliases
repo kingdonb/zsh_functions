@@ -20,6 +20,8 @@ alias delcomplete="for i (\$(completed_namespaces)); do \
     completed_in_ns|xargs kubectl delete po; \
   done"
 
+source $HOME/zsh_functions/linstorps
+
 alias grc='git rebase --continue'
 alias ga='git add'
 alias gap='git add -p'

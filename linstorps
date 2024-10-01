@@ -1,0 +1,15 @@
+function linstor () {
+  kubectl exec -n cozy-linstor deploy/linstor-controller -- linstor "$@"
+}
+
+alias psl='linstor ps list'
+alias pscdp='linstor ps cdp zfs --pool-name data --storage-pool data'
+
+function linstor_add_all_ps () {
+  physical_storage=($(linstor ps list|grep talos-|awk -F'|' '{print $4}'))
+  for i ($physical_storage); do
+    node=$(echo $i|cut -d "[" -f1)
+    disk=$(echo $i|cut -d "[" -f2|cut -d "]" -f1)
+    pscdp $node $disk
+  done
+}
