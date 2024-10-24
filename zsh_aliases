@@ -1,11 +1,13 @@
 #!/usr/bin/env zsh
 
 alias hogs='k top po -A |sort -k4 -h'
+alias cogs='k top po -A |sort -k3 -h'
 
 source $HOME/zsh_functions/whatswrong
 
 alias whatswrong='wrong_in_all_ns'
 alias lwhatswrong='watch '"'"'zsh -c "source '$HOME'/zsh_functions/whatswrong; wrong_in_all_ns"'"'"''
+alias lnwhatswrong='watch '"'"'zsh -c "source '$HOME'/zsh_functions/whatswrong; wrong_in_ns"'"'"''
 alias nwhatswrong="wrong_in_ns"
 alias dnwhatswrong="for i (\$(wrong_namespaces)); do \
   kubens \$i; \
@@ -21,6 +23,9 @@ alias delcomplete="for i (\$(completed_namespaces)); do \
   done"
 
 source $HOME/zsh_functions/linstorps
+
+alias testkubeconfig='kconf rm admin@test.cluster && kconf add test-kubeconfig.yaml && \
+  kconf rename kubernetes-super-admin@kubernetes-cluster admin@test.cluster && kubectx admin@test.cluster'
 
 alias grc='git rebase --continue'
 alias ga='git add'
