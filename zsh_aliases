@@ -3,6 +3,9 @@
 alias hogs='k top po -A |sort -k4 -h'
 alias cogs='k top po -A |sort -k3 -h'
 
+alias kn='kubens'
+alias kc='kubectx'
+
 source $HOME/zsh_functions/whatswrong
 
 alias whatswrong='wrong_in_all_ns'
