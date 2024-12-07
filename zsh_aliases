@@ -14,7 +14,7 @@ alias lnwhatswrong='watch '"'"'zsh -c "source '$HOME'/zsh_functions/whatswrong; 
 alias nwhatswrong="wrong_in_ns"
 alias dnwhatswrong="for i (\$(wrong_namespaces)); do \
   kubens \$i; \
-    wrong_pods_in_ns|xargs kubectl delete po; \
+    wrong_pods_in_ns|xargs kubectl delete po --wait=false; \
   done"
 alias dwhatswrong="wrong_pods_in_ns|xargs kubectl delete po"
 

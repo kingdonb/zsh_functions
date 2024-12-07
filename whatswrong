@@ -24,7 +24,7 @@ function wrong_namespaces () {
 }
 
 function wrong_in_ns () {
-  kubectl get po|\
+  kubectl get po -o wide|\
     grep -v '7/7     Running' |\
     grep -v '4/4     Running' |\
     grep -v '3/3     Running' |\

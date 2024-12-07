@@ -4,6 +4,7 @@ function linstor () {
 
 alias psl='linstor ps list'
 alias pscdp='linstor ps cdp zfs --pool-name data --storage-pool data'
+alias linsok='linstor r l|grep -v Ok'
 
 function linstor_add_all_ps () {
   physical_storage=($(linstor ps list|grep talos-|awk -F'|' '{print $4}'))
