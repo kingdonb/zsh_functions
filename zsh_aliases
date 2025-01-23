@@ -2,6 +2,7 @@
 
 alias hogs='k top po -A |sort -k4 -h'
 alias cogs='k top po -A |sort -k3 -h'
+alias drain='~/zsh_functions/k8s-drain.sh'
 
 alias kn='kubens'
 alias kc='kubectx'
