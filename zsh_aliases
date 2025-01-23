@@ -6,6 +6,8 @@ alias drain='~/zsh_functions/k8s-drain.sh'
 
 alias kn='kubens'
 alias kc='kubectx'
+alias ketall='kubectl get-all'
+alias kev='kubectl everything'
 
 source $HOME/zsh_functions/whatswrong
 

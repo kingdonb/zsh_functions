@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+kubectl get --show-kind --ignore-not-found $(kubectl api-resources --verbs=list --namespaced -o name | paste -s -d, -) $@
