@@ -36,14 +36,11 @@ alias delcomplete="for i (\$(completed_namespaces)); do \
 
 source $HOME/zsh_functions/linstorps
 
-alias testkubeconfig='kconf rm admin@test.cluster && kconf add test-kubeconfig.yaml && \
-  kconf rename kubernetes-super-admin@kubernetes-cluster admin@test.cluster && kubectx admin@test.cluster'
-
 alias grc='git rebase --continue'
 alias ga='git add'
 alias gap='git add -p'
-alias gc='git commit -v -s -S'
-alias gcm='git commit -v -s -S -m'
+alias gc='git commit -v -s'
+alias gcm='git commit -v -s -m'
 alias gmf='git merge --ff-only'
 alias gd='git diff'
 alias gdc='git diff --cached'
@@ -63,7 +60,7 @@ alias kff='kubectl --namespace=flux-system'
 alias fa='flux get ks -A|egrep -v ^flux-system'
 alias faa='flux get ks -A'
 alias fak='flux get ks'
-alias supertldr="pushd /Users/yebyen/projects/weaveworks/kubeconfig-ca-fetch && make clean && make supertldr && popd"
+# alias supertldr="pushd /Users/yebyen/projects/weaveworks/kubeconfig-ca-fetch && make clean && make supertldr && popd"
 
 alias gtd='git tag -d'
 alias gpo='git push origin'
