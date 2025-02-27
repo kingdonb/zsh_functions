@@ -3,6 +3,7 @@
 function wrong_in_all_ns () {
   kubectl get po -A -o wide|\
     grep -v '7/7     Running' |\
+    grep -v '6/6     Running' |\
     grep -v '4/4     Running' |\
     grep -v '3/3     Running' |\
     grep -v '2/2     Running' |\
@@ -13,6 +14,7 @@ function wrong_in_all_ns () {
 function wrong_namespaces () {
   kubectl get po -A|\
     grep -v '7/7     Running'   |\
+    grep -v '6/6     Running'   |\
     grep -v '4/4     Running'   |\
     grep -v '3/3     Running'   |\
     grep -v '2/2     Running'   |\
@@ -26,6 +28,7 @@ function wrong_namespaces () {
 function wrong_in_ns () {
   kubectl get po -o wide|\
     grep -v '7/7     Running' |\
+    grep -v '6/6     Running' |\
     grep -v '4/4     Running' |\
     grep -v '3/3     Running' |\
     grep -v '2/2     Running' |\
@@ -36,6 +39,7 @@ function wrong_in_ns () {
 function wrong_pods_in_ns () {
   kubectl get po|\
     grep -v '7/7     Running'   |\
+    grep -v '6/6     Running'   |\
     grep -v '4/4     Running'   |\
     grep -v '3/3     Running'   |\
     grep -v '2/2     Running'   |\

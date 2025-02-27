@@ -4,6 +4,9 @@ alias hogs='k top po -A |sort -k4 -h'
 alias cogs='k top po -A |sort -k3 -h'
 alias drain='~/zsh_functions/k8s-drain.sh'
 
+alias node-util='kubectl get nodes --no-headers | awk '\''{print $1}'\'' | xargs -I {} sh -c '\''echo {} ; kubectl describe node {} | grep Allocated -A 5 | grep -ve Event -ve Allocated -ve percent -ve -- ; echo '\'''
+alias pod-reqs='kubectl get po -o custom-columns="Name:metadata.name,CPU-request:spec.containers[*].resources.requests.cpu"'
+
 alias kn='kubens'
 alias kc='kubectx'
 alias ketall='kubectl get-all'
