@@ -8,7 +8,7 @@ alias node-util='kubectl get nodes --no-headers | awk '\''{print $1}'\'' | xargs
 alias pod-reqs='kubectl get po -o custom-columns="Name:metadata.name,CPU-request:spec.containers[*].resources.requests.cpu"'
 
 alias kn='kubens'
-alias kc='kubectx'
+alias kx='kubectx'
 alias ketall='kubectl get-all'
 alias kev='kubectl everything'
 
@@ -53,7 +53,7 @@ alias be='bundle exec'
 alias k=kubectl
 alias kg='kubectl get -A'
 alias ks='kubectl -n kube-system'
-alias kcs='kubectl -n cozy-system'
+alias kcss='kubectl -n cozy-system'
 alias kcf='kubectl -n cozy-fluxcd'
 alias kls='kubectl -n cozy-linstor'
 alias kff='kubectl --namespace=flux-system'
