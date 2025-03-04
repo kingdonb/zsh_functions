@@ -6,6 +6,7 @@ alias drain='~/zsh_functions/k8s-drain.sh'
 
 alias node-util='kubectl get nodes --no-headers | awk '\''{print $1}'\'' | xargs -I {} sh -c '\''echo {} ; kubectl describe node {} | grep Allocated -A 5 | grep -ve Event -ve Allocated -ve percent -ve -- ; echo '\'''
 alias pod-reqs='kubectl get po -o custom-columns="Name:metadata.name,CPU-request:spec.containers[*].resources.requests.cpu"'
+alias mod-reqs='kubectl get po -o custom-columns="Name:metadata.name,Memory-request:spec.containers[*].resources.requests.memory"'
 
 alias kn='kubens'
 alias kx='kubectx'
