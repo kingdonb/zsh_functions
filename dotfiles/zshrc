@@ -16,6 +16,8 @@ bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
 source $HOME/zsh_functions/zsh_aliases
+source /opt/homebrew/opt/kube-ps1/share/kube-ps1.sh
+PROMPT='$(kube_ps1)'$PROMPT
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
@@ -30,3 +32,4 @@ autoload -Uz compinit && compinit
 . <(flux completion zsh)
 . <(helm completion zsh)
 . <(kconf completion zsh)
+. <(kubelogin completion zsh)
