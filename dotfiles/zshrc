@@ -9,7 +9,8 @@ export PATH="/opt/homebrew/sbin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export PATH="$PATH:$HOME/go/bin"
-export FLUX_SYSTEM_NAMESPACE=cozy-fluxcd
+export PATH="$PATH:$HOME/.bun/bin"
+# export FLUX_SYSTEM_NAMESPACE=cozy-fluxcd
 
 bindkey -e
 bindkey "^[[1;5C" forward-word
@@ -30,3 +31,11 @@ autoload -Uz compinit && compinit
 . <(flux completion zsh)
 . <(helm completion zsh)
 . <(kconf completion zsh)
+. <(kubelogin completion zsh)
+
+# bun completions
+[ -s "/Users/yebyen/.bun/_bun" ] && source "/Users/yebyen/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
